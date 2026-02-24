@@ -2,26 +2,29 @@ import java.util.Scanner;
 public class Palindromecheckerapp {
 
 
-
         public static void main(String[] args) {
 
             Scanner scanner = new Scanner(System.in);
 
             System.out.print("Input text: ");
-            String word = scanner.nextLine();
+            String original = scanner.nextLine();
 
             String reversed = "";
 
-            for (int i = word.length() - 1; i >= 0; i--) {
-                reversed += word.charAt(i);
+            // Reverse string using for loop
+            for (int i = original.length() - 1; i >= 0; i--) {
+                reversed = reversed + original.charAt(i);   // String concatenation
             }
 
-            boolean isPalindrome = word.equals(reversed);
+            // Compare original and reversed strings
+            boolean isPalindrome = original.equals(reversed);
 
+            // Display result
             System.out.println("Is it a Palindrome? : " + isPalindrome);
 
             scanner.close();
         }
     }
+
 
 
