@@ -1,45 +1,45 @@
 import java.util.Scanner;
-import java.util.LinkedList;
 
 public class Palindromecheckerapp {
 
 
 
+        // Recursive function to check palindrome
+        private static boolean isPalindrome(String str, int start, int end) {
 
+            // Base condition: crossed pointers or single character left
+            if (start >= end) {
+                return true;
+            }
+
+            // Compare start and end characters
+            if (str.charAt(start) != str.charAt(end)) {
+                return false;
+            }
+
+            // Recursive call for inner substring
+            return isPalindrome(str, start + 1, end - 1);
+        }
 
         public static void main(String[] args) {
 
             Scanner scanner = new Scanner(System.in);
+
             System.out.print("Input text: ");
             String input = scanner.nextLine();
 
-            // Convert string to LinkedList<Character>
-            LinkedList<Character> list = new LinkedList<>();
-            for (char ch : input.toCharArray()) {
-                list.add(ch);
-            }
+            // Call recursive palindrome checker
+            boolean result = isPalindrome(input, 0, input.length() - 1);
 
-            boolean isPalindrome = true;
-
-            // Use two-pointer approach with indices
-            int start = 0;
-            int end = list.size() - 1;
-
-            while (start < end) {
-                if (!list.get(start).equals(list.get(end))) {
-                    isPalindrome = false;
-                    break;
-                }
-                start++;
-                end--;
-            }
-
-            // Print result
-            System.out.println("Is it a Palindrome? : " + isPalindrome);
+            // Display result
+            System.out.println("Is it a Palindrome? : " + result);
 
             scanner.close();
         }
     }
+
+
+
 
 
 
