@@ -1,29 +1,27 @@
-public class Palindromecheckerapp {/**
- * PalindromeChecker Application
- * Displays welcome message and application information at startup.
- */
+import java.util.Scanner;
+public class Palindromecheckerapp {
 
 
-    /**
-     * Main method - Entry point of the application.
-     * JVM invokes this method automatically.
-     */
-    public static void main(String[] args) {
 
-        // Display application information
-        System.out.println("=================================");
-        System.out.println("     Welcome to PalindromeChecker");
-        System.out.println("=================================");
-        System.out.println("Application Name: PalindromeChecker");
-        System.out.println("Version: 1.0.0");
-        System.out.println("Author: Your Name");
-        System.out.println("=================================");
+        public static void main(String[] args) {
 
-        // Continue to next use case (placeholder)
-        System.out.println("Application is ready to check palindromes...");
+            Scanner scanner = new Scanner(System.in);
 
-        // Future: Call palindrome processing method here
-        // checkPalindrome();
+            System.out.print("Input text: ");
+            String word = scanner.nextLine();
+
+            String reversed = "";
+
+            for (int i = word.length() - 1; i >= 0; i--) {
+                reversed += word.charAt(i);
+            }
+
+            boolean isPalindrome = word.equals(reversed);
+
+            System.out.println("Is it a Palindrome? : " + isPalindrome);
+
+            scanner.close();
+        }
     }
-}
+
 
