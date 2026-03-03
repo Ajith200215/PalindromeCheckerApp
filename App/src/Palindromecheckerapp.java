@@ -4,39 +4,30 @@ public class Palindromecheckerapp {
 
 
 
-        // Recursive function to check palindrome
-        private static boolean isPalindrome(String str, int start, int end) {
-
-            // Base condition: crossed pointers or single character left
-            if (start >= end) {
-                return true;
-            }
-
-            // Compare start and end characters
-            if (str.charAt(start) != str.charAt(end)) {
-                return false;
-            }
-
-            // Recursive call for inner substring
-            return isPalindrome(str, start + 1, end - 1);
-        }
-
         public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
 
-            Scanner scanner = new Scanner(System.in);
+            // Read full line input
+            String input = sc.nextLine();
 
-            System.out.print("Input text: ");
-            String input = scanner.nextLine();
+            // Normalize string (remove spaces and convert to lowercase)
+            String cleaned = input.replaceAll("\\s+", "").toLowerCase();
 
-            // Call recursive palindrome checker
-            boolean result = isPalindrome(input, 0, input.length() - 1);
+            // Reverse the cleaned string
+            String reversed = new StringBuilder(cleaned).reverse().toString();
 
-            // Display result
-            System.out.println("Is it a Palindrome? : " + result);
+            // Check palindrome
+            boolean isPalindrome = cleaned.equals(reversed);
 
-            scanner.close();
+            // Output format
+            System.out.println("Input : " + input);
+            System.out.println("Is Palindrome? " + isPalindrome);
+
+            sc.close();
         }
     }
+
+
 
 
 
