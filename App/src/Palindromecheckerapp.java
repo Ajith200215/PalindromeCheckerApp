@@ -1,31 +1,45 @@
+
+import java.util.Stack;
 import java.util.Scanner;
 
 public class Palindromecheckerapp {
 
 
+        public boolean checkPalindrome(String str) {
+
+            Stack<Character> stack = new Stack<>();
+
+            for (int i = 0; i < str.length(); i++) {
+                stack.push(str.charAt(i));
+            }
+
+            for (int i = 0; i < str.length(); i++) {
+                if (str.charAt(i) != stack.pop()) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
 
         public static void main(String[] args) {
+
             Scanner sc = new Scanner(System.in);
+            Palindromecheckerapp obj = new Palindromecheckerapp();
 
-            // Read full line input
-            String input = sc.nextLine();
+            String input = sc.nextLine();   // No extra print statement
 
-            // Normalize string (remove spaces and convert to lowercase)
-            String cleaned = input.replaceAll("\\s+", "").toLowerCase();
+            boolean result = obj.checkPalindrome(input);
 
-            // Reverse the cleaned string
-            String reversed = new StringBuilder(cleaned).reverse().toString();
-
-            // Check palindrome
-            boolean isPalindrome = cleaned.equals(reversed);
-
-            // Output format
             System.out.println("Input : " + input);
-            System.out.println("Is Palindrome? " + isPalindrome);
+            System.out.println("Output : " + result);
 
             sc.close();
         }
     }
+
+
+
 
 
 
